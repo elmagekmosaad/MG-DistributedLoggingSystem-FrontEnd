@@ -1,0 +1,146 @@
+@if (userService.currenUser()) {
+  <div class="container mt-5" style="padding-top: 50px;">
+    <h2 class="text-center mb-4 text-primary" style="margin-top: 20px;">Log Filters</h2>
+    <form (ngSubmit)="applyFilters()" #filterForm="ngForm" class="mb-4">
+      <div class="row">
+        
+        <!-- Storage Type -->
+        <div class="col-md-4 mb-3">
+          <div class="form-group">
+            <label for="storageType" class="form-label">Storage Type:</label>
+            <select class="form-select" name="storageType" [(ngModel)]="filterModel.storageType" required>
+              <option value="" disabled>Select Storage Type</option>
+              <option *ngFor="let storageType of storageTypes()" [value]="storageType">
+                {{ getStorageTypeByIndex(storageType) }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Service -->
+        <div class="col-md-4 mb-3">
+          <div class="form-group">
+            <label for="service" class="form-label">Service:</label>
+            <input
+              type="text"
+              id="service"
+              [(ngModel)]="filterModel.service"
+              name="service"
+              class="form-control"
+              placeholder="Enter Service"
+            />
+          </div>
+        </div>
+
+        <!-- Log Level -->
+        <div class="col-md-4 mb-3">
+          <div class="form-group">
+            <label for="level" class="form-label">Level:</label>
+            <select class="form-select" name="level" [(ngModel)]="filterModel.level" required>
+              <option value="" disabled>Select Log Level</option>
+              <option *ngFor="let level of logLevels()" [value]="level">
+                {{ getLogLevelByIndex(level) }}
+              </option>
+            </select>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="row">
+        
+        <!-- Start Time -->
+        <div class="col-md-4 mb-3">
+          <div class="form-group">
+            <label for="startTime" class="form-label">Start Time:</label>
+            <input
+              type="datetime-local"
+              id="startTime"
+              [(ngModel)]="filterModel.startTime"
+              name="startTime"
+              class="form-control"
+            />
+          </div>
+        </div>
+
+        <!-- End Time -->
+        <div class="col-md-4 mb-3">
+          <div class="form-group">
+            <label for="endTime" class="form-label">End Time:</label>
+            <input
+              type="datetime-local"
+              id="endTime"
+              [(ngModel)]="filterModel.endTime"
+              name="endTime"
+              class="form-control"
+            />
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="col-md-4 d-flex align-items">
+          <button type="submit" class="btn btn-success w-100">Apply Filters</button>
+        </div>
+
+      </div>
+    </form>
+
+    <div *ngIf="isLoading" class="alert alert-info">Loading logs...</div>
+
+    <table *ngIf="!isLoading && logs && logs.items && logs.items.length > 0" class="table table-bordered table-striped align-middle">
+      <thead class="thead-dark">
+        <tr>
+          <th class="text-center">Storage Type</th>
+          <th class="text-center">Service</th>
+          <th class="text-center">Level</th>
+          <th class="text-center">Timestamp</th>
+          <th class="text-center">Message</th>
+          <th class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let log of logs?.items">
+          <td class="text-center">{{ getStorageTypeName(log.storageType) }}</td>
+          <td class="text-center">{{ log.service }}</td>
+          <td class="text-center">
+            <span
+              class="badge"
+              [ngClass]="{
+                'bg-info': log.level === logLevelTypes.Info,
+                'bg-warning': log.level === logLevelTypes.Warning,
+                'bg-danger': log.level === logLevelTypes.Error
+              }"
+            >
+              {{ getLogLevelName(log.level) }}
+            </span>
+          </td>
+          <td class="text-center">{{ log.timestamp | date : "short" }}</td>
+          <td class="text-center">{{ log.message }}</td>
+          <td class="text-center" style="width: 150px;">
+            <button class="btn btn-primary" (click)="viewLogDetails(log.id)">View Details (Meta Data)</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="!isLoading && logs?.items?.length === 0" class="alert alert-warning">
+      No logs found.
+    </div>
+
+    <nav>
+      <ul class="pagination justify-content-center mt-3">
+        <li class="page-item" [ngClass]="{ disabled: pageNumber <= 1 }">
+          <a class="page-link" (click)="changePage(pageNumber - 1)">Previous</a>
+        </li>
+        <li class="page-item disabled">
+          <a class="page-link" href="#">Page {{ pageNumber }} of {{ (totalRecords + pageSize - 1) / pageSize | number : "1.0-0" }}</a>
+        </li>
+        <li class="page-item" [ngClass]="{ disabled: pageNumber * pageSize >= totalRecords }">
+          <a class="page-link" (click)="changePage(pageNumber + 1)">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+} @else {
+  <app-unauthorized></app-unauthorized>
+}

@@ -1,0 +1,65 @@
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+  <div class="card shadow-lg p-4" style="width: 100%; max-width: 500px; border-radius: 15px;">
+    <h3 class="text-center mb-4 text-primary">Create Your Account</h3>
+    <form #registerForm="ngForm" (submit)="register()" autocomplete="off">
+      <div class="mb-3 form-floating">
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          [(ngModel)]="Model.name"
+          placeholder="User Name"
+          required
+        />
+        <label for="name">Full Name</label>
+      </div> 
+      <div class="mb-3 form-floating">
+        <input
+          type="text"
+          class="form-control"
+          name="userName"
+          [(ngModel)]="Model.userName"
+          placeholder="User Name"
+          required
+        />
+        <label for="userName">User Name</label>
+      </div>
+      <div class="mb-3 form-floating">
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="Model.password"
+          placeholder="Password"
+          required
+        />
+        <label for="password">Password</label>
+      </div>
+      <div class="mb-3 form-floating">
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          [(ngModel)]="Model.email"
+          placeholder="Email"
+          required
+        />
+        <label for="email">Email</label>
+      </div>
+      <div class="mb-3 form-floating">
+        <input
+          type="tel"
+          class="form-control"
+          name="phoneNumber"
+          [(ngModel)]="Model.phoneNumber"
+          placeholder="Phone Number"
+        />
+        <label for="phoneNumber">Phone Number</label>
+      </div>
+      <button class="btn btn-primary w-100 mb-3" type="submit">Register</button>
+      <p class="text-center">
+        Already have an account? <a href="/login" class="text-decoration-none">Log In</a>
+      </p>
+    </form>
+  </div>
+</div>

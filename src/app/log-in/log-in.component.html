@@ -1,0 +1,44 @@
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+  <div class="card shadow-lg p-4" style="width: 100%; max-width: 400px; border-radius: 15px;">
+    <h3 class="text-center mb-4 text-primary">Welcome Back!</h3>
+    <form #loginForm="ngForm" (submit)="login()" autocomplete="off">
+      <div class="mb-3 form-floating">
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          [(ngModel)]="Model.email"
+          placeholder="Email"
+          required
+          autofocus
+        />
+        <label for="email">Email</label>
+      </div>
+      <div class="mb-3 form-floating">
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="Model.password"
+          placeholder="Password"
+          required
+        />
+        <label for="password">Password</label>
+      </div>
+      <div class="form-check mb-3">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          [(ngModel)]="Model.RememberMe"
+          name="rememberMe"
+          id="rememberMe"
+        />
+        <label class="form-check-label" for="rememberMe">Remember Me</label>
+      </div>
+      <button class="btn btn-primary w-100 mb-2" type="submit">Log In</button>
+      <p class="text-center mt-3">
+        <a href="/register" class="text-decoration-none">Register New Account</a>
+      </p>
+    </form>
+  </div>
+</div>

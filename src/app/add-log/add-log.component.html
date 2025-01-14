@@ -1,0 +1,77 @@
+@if (userService.currenUser()) {
+  <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card shadow-lg p-4" style="width: 100%; max-width: 400px; border-radius: 15px;">
+      <h3 class="text-center mb-4 text-primary">Add New Log</h3>
+      <form #registerForm="ngForm" (submit)="addLog()" autocomplete="off">
+        
+        <!-- Storage Type -->
+        <div class="mb-3 form-floating">
+          <select id="storageType" class="form-select" name="storageType" [(ngModel)]="Model.storageType" required>
+            <option value="" disabled selected>Select Storage Type</option>
+            <option *ngFor="let storageType of storageTypes()" [value]="storageType">
+              {{ getStorageTypeByIndex(storageType) }}
+            </option>
+          </select>
+          <label for="storageType">Storage Type</label>
+        </div>
+
+        <!-- Service -->
+        <div class="mb-3 form-floating">
+          <input
+            type="text"
+            class="form-control"
+            id="service"
+            name="Service"
+            [(ngModel)]="Model.service"
+            placeholder="Enter Service Name"
+            required
+          />
+          <label for="service">Service</label>
+        </div>
+
+        <!-- Log Level -->
+        <div class="mb-3 form-floating">
+          <select id="level" class="form-select" name="level" [(ngModel)]="Model.level" required>
+            <option value="" disabled selected>Select Log Level</option>
+            <option *ngFor="let level of logLevels()" [value]="level">
+              {{ getLogLevelByIndex(level) }}
+            </option>
+          </select>
+          <label for="level">Log Level</label>
+        </div>
+
+        <!-- Message -->
+        <div class="mb-3 form-floating">
+          <input
+            type="text"
+            class="form-control"
+            id="message"
+            name="Message"
+            [(ngModel)]="Model.message"
+            placeholder="Enter Message"
+            required
+          />
+          <label for="message">Message</label>
+        </div>
+
+        <!-- Timestamp -->
+        <div class="mb-3 form-floating">
+          <input
+            type="datetime-local"
+            class="form-control"
+            id="timestamp"
+            name="Timestamp"
+            [(ngModel)]="Model.timestamp"
+            required
+          />
+          <label for="timestamp">Timestamp</label>
+        </div>
+
+        <!-- Submit Button -->
+        <button class="btn btn-primary w-100 mb-2" type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+} @else {
+  <app-unauthorized></app-unauthorized>
+}

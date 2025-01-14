@@ -1,0 +1,21 @@
+.card h3 {
+    font-weight: bold;
+    color: #6a11cb;
+  }
+  
+  .card .form-control {
+    border-radius: 10px;
+  }
+  
+  .card .btn-primary {
+    border-radius: 10px;
+  }
+  
+  .card a {
+    color: #2575fc;
+  }
+  
+  .card a:hover {
+    text-decoration: underline;
+  }
+  

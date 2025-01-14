@@ -1,0 +1,70 @@
+<div class="container-fluid p-0" style="margin-top: 50px;">
+  <!-- Hero Section -->
+  <div class="hero bg-gradient text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-4 animate__animated animate__fadeInUp">Welcome to MG Distributed Logging System</h1>
+      <p class="lead mt-3 animate__animated animate__fadeInUp" style="font-size: 1.2rem;">
+        Effortlessly manage logs from various distributed systems with powerful tools and seamless integrations.
+      </p>
+      <div class="mt-4">
+        <h2 class="h5">Developed by:</h2>
+        <h1 id="developer-name" class="h3 animate__animated animate__wobble" style="color: #4CAF50;">Mosaad Ghanem</h1>
+        <h4 class="h6 animate__animated animate__fadeInLeft">Email: <a href="mailto:mosaadghanem97@gmail.com" >mosaadghanem97&#64;gmail.com</a></h4>
+        <h4 class="h6 animate__animated animate__fadeInRight">LinkedIn: <a href="https://www.linkedin.com/in/elmagekmosaad/"  target="_blank">Mosaad Ghanem</a></h4>
+        <h4 class="h6 animate__animated animate__fadeInDown">WhatsApp: <a href="https://wa.me/+201004918459"  target="_blank">+201004918459</a></h4>
+      </div>
+      @if (!userService.currenUser()) {
+      <div class="mt-4">
+<button class="btn btn-join" routerLink="/register">Join Us | Register New Account</button>
+<button class="btn btn-login" routerLink="/login">Login</button>
+      </div>
+      }
+    </div>
+  </div>
+<hr>
+  <!-- Features Section -->
+  <div class="features py-5" style="background-color: #f8f9fa;">
+    <div class="container text-center">
+      <h3 class="mb-4" style="color: #FFC857;">Why Choose Our System?</h3>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <h5 class="card-title" style="color: #6C757D;">Seamless Integration</h5>
+              <p class="card-text">
+                Switch between storage backends like Database, File System, S3, and RabbitMQ with ease.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <h5 class="card-title" style="color: #6C757D;">Real-Time Insights</h5>
+              <p class="card-text">
+                Retrieve logs quickly and efficiently using our powerful filtering tools.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <h5 class="card-title" style="color: #6C757D;">User-Friendly</h5>
+              <p class="card-text">
+                Access your logs via a modern, responsive, and intuitive interface.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-secondary text-light text-center py-4">
+    <p class="mb-0">
+      &copy; 2025 MG Distributed Logging System. All Rights Reserved.
+    </p>
+  </footer>
+</div>

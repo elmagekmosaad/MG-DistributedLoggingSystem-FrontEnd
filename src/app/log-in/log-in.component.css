@@ -1,0 +1,26 @@
+body {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #fff;
+  }
+  
+  .card {
+    background-color: #ffffff;
+    color: #333;
+  }
+  
+  .card h3 {
+    font-weight: bold;
+  }
+  
+  .card .form-control {
+    border-radius: 10px;
+  }
+  
+  .card .btn-primary {
+    border-radius: 10px;
+  }
+  
+  .card a {
+    color: #2575fc;
+  }
+  

@@ -1,0 +1,131 @@
+/* Hero Section */
+.hero{
+    color: #343a40; /* لون النص داكن ليتناسب مع الخلفية الفاتحة */
+    padding: 80px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero h1  {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #007bff; /* تغيير لون العنوان إلى الأزرق */
+}
+
+.hero h4 , h2 , p{
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: #6c757d; /* لون النص أكثر دقة */
+}
+
+/* Features Section */
+.features {
+    background-color: #f8f9fa; /* نفس الخلفية الفاتحة */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.features h2 {
+    font-weight: bold;
+    color: #28a745; /* اللون الأخضر الجميل للنص */
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* Cards */
+.card {
+    background-color: #F9FAFB; /* نفس اللون الخلفي للفيوتشر */
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-weight: 700;
+    color: #6C757D; /* اللون الداكن للعناوين */
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555555;
+}
+
+footer {
+    background-color: #343a40; /* تغيير اللون إلى لون داكن أكثر للفوتر */
+    color: #f1f1f1; /* جعل النص أبيض لكي يكون ظاهر مع الخلفية الداكنة */
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+}
+
+footer p {
+    margin: 0;
+    color: #f1f1f1; /* جعل النص أبيض */
+}
+
+/* إذا كان النص لا يزال غير ظاهر، تأكد من أن الـ font-size مناسب */
+footer p {
+    font-size: 1rem; /* تحديد حجم النص */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .features h2 {
+        font-size: 2rem;
+    }
+
+    .card {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
+}
+/* زر Join باللون الأزرق */
+.btn-join {
+    background-color: #007bff; /* لون أزرق */
+    color: #fff; /* لون النص أبيض */
+    border: 2px solid #007bff; /* إضافة حدود باللون الأزرق */
+}
+
+/* زر Login بلون آخر (مثلاً اللون الأخضر) */
+.btn-login {
+    background-color: #28a745; /* لون أخضر */
+    color: #fff; /* لون النص أبيض */
+    border: 2px solid #28a745; /* إضافة حدود باللون الأخضر */
+}
+
+/* التأثير عند التمرير */
+.btn:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* تأثير الظل */
+}
+
+/* التخصيص بشكل أكبر في حالة وجود تداخل */
+.btn-join:hover {
+    background-color: #0056b3; /* ظل أزرق داكن عند التمرير */
+    border-color: #0056b3; /* تغيير لون الحدود عند التمرير */
+}
+
+.btn-login:hover {
+    background-color: #218838; /* ظل أخضر داكن عند التمرير */
+    border-color: #218838; /* تغيير لون الحدود عند التمرير */
+}
